@@ -19,6 +19,7 @@ header p{font-size:.72rem;opacity:.6;font-weight:300;margin-top:2px;}
 .tab.active{color:var(--ocean-deep);border-bottom-color:var(--ocean-deep);}
 .tab-panel{display:none;flex:1;overflow-y:auto;flex-direction:column;}
 .tab-panel.active{display:flex;}
+.tab-panel>*{flex-shrink:0;}/* keep cards at natural height; panel scrolls instead of squashing them */
 .fbar{padding:8px;border-bottom:1px solid #eee;display:flex;gap:4px;flex-wrap:wrap;position:sticky;top:0;background:var(--white);z-index:5;}
 .fb{padding:4px 9px;border-radius:20px;border:1.5px solid currentColor;background:transparent;cursor:pointer;font-size:.68rem;font-weight:500;transition:all .15s;font-family:'DM Sans',sans-serif;}
 .fb.fall{color:#555;border-color:#aaa;}.fb.faloj{color:var(--ocean);}.fb.fplaya{color:var(--turquoise);}.fb.frest{color:var(--lava);}.fb.flugar{color:var(--gold);}
@@ -86,27 +87,114 @@ header p{font-size:.72rem;opacity:.6;font-weight:300;margin-top:2px;}
 .ld{width:8px;height:8px;border-radius:50%;}
 .attr{position:absolute;bottom:4px;right:8px;font-size:.58rem;color:#888;z-index:5;}
 .attr a{color:#888;}
-/* ── MOBILE ─────────────────────────────────────────────────── */
-@media (max-width: 700px){
-  header{padding:10px 14px;}
-  header h1{font-size:1.05rem;}
-  header p{font-size:.62rem;}
-  .main{flex-direction:column;}
-  .sidebar{width:100%;height:42vh;border-right:none;border-bottom:2px solid #ddd;flex-shrink:0;}
-  .mapwrap{flex:1;min-height:0;}
-  .fb{padding:6px 11px;font-size:.74rem;}
-  .pi{padding:10px 12px;}
-  .stop{padding:9px 12px;}
-  .mcbtn{width:42px;height:42px;font-size:1.3rem;}
-  .popup{left:8px;right:8px;width:auto;top:8px;}
-  .legend{bottom:8px;left:8px;font-size:.63rem;padding:6px 10px;}
-  .day-block{margin:6px;}
-  .day-km{display:none;}
-  .drive-badge{font-size:.66rem;}
+
+/* Drawer handle + mobile-only labels: hidden on desktop by default */
+.drawer-handle{display:none;}
+.m-only{display:none;}
+
+/* ── MOBILE (<768px) ─────────────────────────────────────────── */
+@media (max-width: 768px){
+  body{height:100vh;height:100dvh;}
+  header{padding:11px 16px;}
+  header h1{font-size:1.12rem;}
+  header p{font-size:.72rem;opacity:.8;}
+
+  /* Vertical layout: MAP on top, PANEL (drawer) below.
+     column-reverse keeps the DOM order (desktop) intact. */
+  .main{flex-direction:column-reverse;}
+  .mapwrap{flex:1 1 auto;min-height:0;}
+  .sidebar{
+    width:100%;
+    height:var(--drawer-h,44vh);
+    border-right:none;
+    border-top:1px solid #d8d2c6;
+    border-radius:18px 18px 0 0;
+    box-shadow:0 -7px 22px rgba(0,0,0,.16);
+    flex-shrink:0;
+    z-index:6;
+    transition:height .25s ease;
+    will-change:height;
+  }
+
+  /* Grab handle to drag the drawer up/down */
+  .drawer-handle{
+    display:flex;align-items:center;justify-content:center;
+    height:32px;flex-shrink:0;cursor:grab;touch-action:none;
+    background:var(--white);border-radius:18px 18px 0 0;
+  }
+  .drawer-handle .grabber{width:46px;height:5px;border-radius:3px;background:#c7c0b2;}
+  .drawer-handle:active{cursor:grabbing;}
+  .drawer-handle:active .grabber{background:#a89f8d;}
+
+  /* Tabs: big icons + clear active highlight */
+  .tabs{border-bottom:2px solid #eee;}
+  .tab{
+    padding:0 4px;min-height:52px;
+    display:flex;align-items:center;justify-content:center;gap:6px;
+    font-size:1.05rem;font-weight:600;color:#8a8a8a;
+  }
+  .tab.active{color:var(--ocean-deep);background:#eaf4fb;font-weight:700;}
+
+  /* Filters: ≥44px tap targets, readable */
+  .fbar{padding:10px;gap:8px;}
+  .fb{min-height:44px;padding:8px 15px;font-size:.95rem;display:inline-flex;align-items:center;border-width:2px;}
+  .m-only{display:inline;}
+
+  /* Scroll behaviour: keep panel scroll from leaking to the page/map */
+  .tab-panel{overflow-x:hidden;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;touch-action:pan-y;}
+
+  /* Base info banner */
+  .abanner{padding:13px 15px;}
+  .abanner h3{font-size:1rem;}
+  .abanner p{font-size:.9rem;line-height:1.5;}
+  .sec{font-size:.86rem;padding:13px 15px 4px;color:#9a8f7c;}
+
+  /* Place list rows */
+  .pi{padding:14px 15px;min-height:44px;gap:11px;}
+  .pi .dot{width:11px;height:11px;margin-top:6px;}
+  .pname{font-size:1.05rem;font-weight:700;color:#1c1c1c;line-height:1.35;}
+  .psub{font-size:.86rem;color:#666;margin-top:2px;}
+  .ptag{font-size:.78rem;padding:2px 9px;margin-top:5px;}
+
+  /* Itinerary cards */
+  .day-block{margin:11px 10px;border-radius:14px;border-color:#dcdcdc;}
+  .day-header{padding:13px 14px;}
+  .day-header h3{font-size:1.06rem;}
+  .day-km{display:inline-block;font-size:.78rem;padding:3px 9px;}
+  .day-summary{font-size:.9rem;padding:10px 12px;margin:8px 12px 6px;line-height:1.55;}
+  .drive{flex-wrap:wrap;justify-content:center;padding:7px 14px;gap:8px;}
+  .drive-line{min-width:16px;}
+  .drive-badge{font-size:.86rem;white-space:normal;text-align:center;padding:5px 11px;color:#555;font-weight:600;}
+  .stop{padding:13px 14px;min-height:44px;gap:12px;}
+  .stop-num{width:26px;height:26px;font-size:.8rem;margin-top:1px;}
+  .stop-name{font-size:1.03rem;font-weight:700;color:#1c1c1c;line-height:1.35;}
+  .stop-type{font-size:.86rem;color:#666;margin-top:2px;}
+  .stop-tip{font-size:.92rem;color:#555;margin-top:4px;line-height:1.45;font-style:normal;}
+
+  /* Zoom controls: bigger, clear of corners */
+  .mapcontrols{bottom:14px;right:10px;gap:9px;}
+  .mcbtn{width:48px;height:48px;font-size:1.65rem;border-radius:11px;}
+
+  /* Popup: wider, larger type, easy close */
+  .popup{left:10px;right:10px;width:auto;top:10px;padding:16px 16px 14px;border-radius:14px;box-shadow:0 8px 30px rgba(0,0,0,.3);max-height:calc(100% - 20px);overflow-y:auto;-webkit-overflow-scrolling:touch;}
+  .pop-close{width:42px;height:42px;top:5px;right:5px;font-size:1.35rem;color:#888;display:flex;align-items:center;justify-content:center;}
+  .pop-day{font-size:.85rem;padding:3px 10px;}
+  .pop-name{font-size:1.22rem;font-weight:700;color:#1a1a1a;padding-right:40px;}
+  .pop-zone{font-size:.9rem;color:#777;margin-bottom:7px;}
+  .pop-drive{font-size:.95rem;padding:7px 10px;color:#333;}
+  .pop-desc{font-size:1rem;color:#333;line-height:1.55;}
+  .pop-link{font-size:1rem;min-height:44px;display:inline-flex;align-items:center;font-weight:600;margin-top:4px;}
+
+  /* Legend / attribution: out of the way */
+  .legend{bottom:12px;left:10px;font-size:.72rem;padding:8px 11px;border-radius:10px;}
+  .legend h4{font-size:.78rem;margin-bottom:4px;}
+  .lr{margin-bottom:4px;}
+  .attr{font-size:.55rem;bottom:2px;}
 }
-@media (max-width: 400px){
-  header h1{font-size:.92rem;}
-  .sidebar{height:44vh;}
+@media (max-width: 380px){
+  header h1{font-size:1rem;}
+  header p{font-size:.66rem;}
+  .tab{font-size:.98rem;}
 }
 </style>
 </head>
@@ -120,6 +208,7 @@ header p{font-size:.72rem;opacity:.6;font-weight:300;margin-top:2px;}
 </header>
 <div class="main">
   <div class="sidebar">
+    <div class="drawer-handle" id="drawerHandle" title="Desliza para ver más"><span class="grabber"></span></div>
     <div class="tabs">
       <div class="tab active" data-tab="lugares">📍 Lugares</div>
       <div class="tab" data-tab="itinerario">🗓️ 4 Días</div>
@@ -129,10 +218,10 @@ header p{font-size:.72rem;opacity:.6;font-weight:300;margin-top:2px;}
     <div class="tab-panel active" id="tab-lugares">
       <div class="fbar" id="fbar">
         <button class="fb fall active" data-f="all">Todos</button>
-        <button class="fb faloj" data-f="alojamiento">🏨</button>
+        <button class="fb faloj" data-f="alojamiento">🏨<span class="m-only">&nbsp;Hotel</span></button>
         <button class="fb fplaya" data-f="playa">🏖️ Playas</button>
-        <button class="fb frest" data-f="restaurante">🍽️</button>
-        <button class="fb flugar" data-f="lugar">📍</button>
+        <button class="fb frest" data-f="restaurante">🍽️<span class="m-only">&nbsp;Comer</span></button>
+        <button class="fb flugar" data-f="lugar">📍<span class="m-only">&nbsp;Sitios</span></button>
       </div>
       <div class="abanner">
         <h3>📍 Base: Arrecife</h3>
@@ -896,6 +985,87 @@ function focusStop(el){
 
 window.addEventListener("resize",resize);
 resize();
+
+/* ── MOBILE ENHANCEMENTS (additive — no map logic changed) ───── */
+(function(){
+  function isMobile(){return window.matchMedia("(max-width:768px)").matches;}
+
+  /* — Draggable bottom drawer — */
+  var sidebar=document.querySelector(".sidebar");
+  var handle=document.getElementById("drawerHandle");
+  if(sidebar&&handle){
+    var SNAPS=[26,44,82];                 // vh snap points: peek / default / expanded
+    var startY=0,startH=0,active=false,rafPend=false;
+    function redraw(){if(!rafPend){rafPend=true;requestAnimationFrame(function(){rafPend=false;resize();});}}
+    function applyPx(px){
+      var maxH=window.innerHeight*0.88, minH=window.innerHeight*0.16;
+      sidebar.style.height=Math.max(minH,Math.min(maxH,px))+"px";
+      redraw();
+    }
+    handle.addEventListener("touchstart",function(e){
+      if(!isMobile())return;
+      active=true;startY=e.touches[0].clientY;startH=sidebar.getBoundingClientRect().height;
+      sidebar.style.transition="none";e.preventDefault();
+    },{passive:false});
+    handle.addEventListener("touchmove",function(e){
+      if(!active)return;
+      applyPx(startH+(startY-e.touches[0].clientY));e.preventDefault();
+    },{passive:false});
+    handle.addEventListener("touchend",function(e){
+      if(!active)return;active=false;
+      sidebar.style.transition="height .25s ease";
+      var endY=(e.changedTouches[0]||{clientY:startY}).clientY;
+      var curVh=sidebar.getBoundingClientRect().height/(window.innerHeight/100);
+      var target;
+      if(Math.abs(startY-endY)<8){             // tap toggles default <-> expanded
+        target=curVh>60?44:82;
+      }else{                                    // drag snaps to nearest point
+        target=SNAPS[0];var bd=1e9;
+        SNAPS.forEach(function(s){var d=Math.abs(s-curVh);if(d<bd){bd=d;target=s;}});
+      }
+      sidebar.style.height=(target/100*window.innerHeight)+"px";
+      setTimeout(resize,280);
+    },{passive:false});
+    window.addEventListener("resize",function(){
+      if(!isMobile()){sidebar.style.height="";sidebar.style.transition="";}
+      else if(sidebar.style.height){
+        var max=window.innerHeight*0.88;
+        if(parseFloat(sidebar.style.height)>max)sidebar.style.height=max+"px";
+      }
+      resize();
+    });
+  }
+
+  /* — Touch tap on canvas: open marker popup / close on tap outside —
+       (the canvas `click` handler never fires on touch because touchstart
+        calls preventDefault; this restores tap behaviour for mobile.) */
+  var tx=0,ty=0,moved=false,multi=false;
+  canvas.addEventListener("touchstart",function(e){
+    if(e.touches.length===1){tx=e.touches[0].clientX;ty=e.touches[0].clientY;moved=false;multi=false;}
+    else multi=true;
+  },{passive:true});
+  canvas.addEventListener("touchmove",function(e){
+    if(e.touches.length===1){
+      if(Math.abs(e.touches[0].clientX-tx)+Math.abs(e.touches[0].clientY-ty)>10)moved=true;
+    }else multi=true;
+  },{passive:true});
+  canvas.addEventListener("touchend",function(e){
+    if(e.touches.length>0||multi||moved)return;
+    var rect=canvas.getBoundingClientRect();
+    var mx=tx-rect.left,my=ty-rect.top;
+    var hit=null,best=1e9,r=markerR(false)+12;   // generous radius for easy tapping
+    D.forEach(function(p,i){
+      if(i===0)return;
+      var show=activeTab==="lugares"?(activeFilter==="all"||p.t===activeFilter):!!DAY_MAP[i];
+      if(!show)return;
+      var pos=latLngToPixel(p.lat,p.lng);
+      var dist=Math.sqrt(Math.pow(pos.x-mx,2)+Math.pow(pos.y-my,2));
+      if(dist<r&&dist<best){best=dist;hit=i;}
+    });
+    if(hit!==null)showPopup(hit);
+    else document.getElementById("popup").classList.remove("show");
+  },{passive:true});
+})();
 </script>
 </body>
 </html>
