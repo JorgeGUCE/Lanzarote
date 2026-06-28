@@ -59,10 +59,57 @@ header p{font-size:.72rem;opacity:.6;font-weight:300;margin-top:2px;}
 .stop-name{font-weight:500;font-size:.78rem;line-height:1.3;}
 .stop-type{font-size:.64rem;color:#bbb;margin-top:1px;}
 .stop-tip{font-size:.67rem;color:#777;margin-top:2px;line-height:1.35;font-style:italic;}
+.stop-main{flex:1;min-width:0;cursor:pointer;}
+/* Plan fijo vs opcional */
+.plan-tag{display:inline-block;margin:2px 12px 4px;font-size:.6rem;font-weight:700;color:#7b6a4f;background:#f3ecdc;padding:2px 9px;border-radius:10px;letter-spacing:.5px;text-transform:uppercase;}
+/* Parada para comer (sin restaurante) */
+.meal{display:flex;align-items:center;gap:9px;margin:4px 12px;padding:7px 11px;background:#fff8ec;border:1px dashed #e6c98a;border-radius:8px;}
+.meal-ico{font-size:.95rem;flex-shrink:0;}
+.meal-name{font-weight:600;font-size:.74rem;color:#b08431;}
+.meal-tip{font-size:.66rem;color:#998a6a;line-height:1.35;margin-top:1px;}
+/* Caja de sugerencias / opcional */
+.sugbox{margin:6px 10px 4px;padding:7px 9px 9px;background:#f7f6f9;border:1px dashed #cdc7d6;border-radius:10px;}
+.sug-h{font-size:.66rem;font-weight:700;color:#8a7fa0;text-transform:uppercase;letter-spacing:.6px;margin:2px 2px 6px;}
+.sug-h span{font-weight:400;text-transform:none;letter-spacing:0;color:#aaa;}
+.sug{display:flex;align-items:flex-start;gap:8px;padding:7px 8px;background:#fff;border-radius:8px;margin-bottom:5px;cursor:pointer;border:1px solid #ece9f1;}
+.sug:last-child{margin-bottom:0;}
+.sug.nogo{cursor:default;}
+.sug:not(.nogo):active{background:#f3f0f8;}
+.sug-main{flex:1;min-width:0;}
+.sug-name{font-weight:500;font-size:.76rem;color:#444;line-height:1.3;}
+.sug-opt{font-size:.58rem;background:#ede7f6;color:#7e57c2;padding:1px 6px;border-radius:8px;margin-left:6px;font-weight:600;}
+.sug-sub{font-size:.64rem;color:#b3aac4;margin-top:1px;}
+.sug-note{font-size:.67rem;color:#777;line-height:1.4;margin-top:2px;}
+.sug-pin{flex-shrink:0;font-size:.85rem;opacity:.45;align-self:center;}
 
 .day-summary{margin:5px 10px 4px;padding:7px 10px;background:#f8f6ff;border-left:3px solid #b39ddb;border-radius:0 6px 6px 0;font-size:.68rem;color:#666;line-height:1.5;}
 .day-summary.g{background:#f0faf4;border-left-color:#81c784;}
 .day-summary.o{background:#fef6f0;border-left-color:#ffb74d;}
+.day-summary.b{background:#e3f2fd;border-left-color:#1a7ab5;}
+
+/* CHECKLIST */
+.ck-top{position:sticky;top:0;background:var(--white);padding:11px 13px 12px;border-bottom:1px solid #eee;z-index:5;}
+.ck-top h4{font-family:'Playfair Display',serif;font-size:.82rem;color:#555;font-style:italic;display:inline;}
+.ck-pct{float:right;font-size:.72rem;color:#2a9d5c;font-weight:600;}
+.ck-bar{height:8px;background:#eee;border-radius:5px;overflow:hidden;margin-top:7px;}
+.ck-bar>i{display:block;height:100%;background:linear-gradient(90deg,#2a9d5c,#3dbd72);width:0;transition:width .3s ease;}
+.ck-reset{display:block;margin:9px 8px 4px;width:calc(100% - 16px);padding:8px;border:1px solid #e0d8c8;background:#faf7f0;color:#999;border-radius:8px;font-size:.7rem;font-family:'DM Sans',sans-serif;cursor:pointer;}
+.ck-reset:hover{background:#f3eee2;color:#777;}
+.ck-day{margin:8px;border-radius:10px;overflow:hidden;border:1px solid #e8e8e8;}
+.ck-day-h{padding:9px 12px;color:#fff;display:flex;align-items:center;gap:8px;font-family:'Playfair Display',serif;font-size:.85rem;font-style:italic;}
+.ck-count{margin-left:auto;font-size:.65rem;background:rgba(255,255,255,.22);padding:2px 8px;border-radius:10px;font-weight:600;white-space:nowrap;}
+.ck-item{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border-bottom:1px solid #f0ebe3;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+.ck-item:last-child{border-bottom:none;}
+.ck-item:active{background:#f5f0e8;}
+.ck-box{width:22px;height:22px;border:2px solid #c4c0b6;border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.95rem;color:#fff;transition:all .15s;margin-top:1px;}
+.ck-item.done .ck-box{background:#2a9d5c;border-color:#2a9d5c;}
+.ck-item.done .ck-name{text-decoration:line-through;color:#aaa;}
+.ck-body{flex:1;min-width:0;}
+.ck-name{font-weight:500;font-size:.82rem;line-height:1.3;}
+.ck-sub{font-size:.67rem;color:#bbb;margin-top:1px;}
+.ck-must{font-size:.56rem;background:#fdecea;color:#c0392b;padding:1px 6px;border-radius:8px;margin-left:6px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;vertical-align:middle;}
+.ck-pin{flex-shrink:0;font-size:.95rem;opacity:.4;padding:0 2px;align-self:center;}
+.ck-pin:active{opacity:1;}
 
 /* MAP */
 .mapwrap{flex:1;position:relative;overflow:hidden;background:#a8d5e8;}
@@ -170,6 +217,35 @@ header p{font-size:.72rem;opacity:.6;font-weight:300;margin-top:2px;}
   .stop-name{font-size:1.03rem;font-weight:700;color:#1c1c1c;line-height:1.35;}
   .stop-type{font-size:.86rem;color:#666;margin-top:2px;}
   .stop-tip{font-size:.92rem;color:#555;margin-top:4px;line-height:1.45;font-style:normal;}
+  .plan-tag{font-size:.74rem;padding:3px 11px;margin:4px 14px 6px;}
+  .meal{padding:11px 13px;gap:11px;margin:6px 12px;}
+  .meal-ico{font-size:1.2rem;}
+  .meal-name{font-size:.95rem;}
+  .meal-tip{font-size:.84rem;margin-top:2px;}
+  .sugbox{margin:8px 10px;padding:10px 11px 12px;}
+  .sug-h{font-size:.82rem;margin-bottom:8px;}
+  .sug{padding:11px 11px;min-height:44px;margin-bottom:7px;}
+  .sug-name{font-size:.96rem;font-weight:600;color:#2a2a2a;}
+  .sug-opt{font-size:.74rem;padding:2px 8px;}
+  .sug-sub{font-size:.8rem;}
+  .sug-note{font-size:.86rem;margin-top:3px;}
+  .sug-pin{font-size:1.3rem;opacity:.5;min-width:30px;text-align:center;}
+
+  /* Checklist: big tap targets */
+  .ck-top{padding:14px 15px;}
+  .ck-top h4{font-size:.98rem;}
+  .ck-pct{font-size:.92rem;}
+  .ck-bar{height:11px;margin-top:9px;}
+  .ck-reset{padding:12px;font-size:.9rem;min-height:44px;}
+  .ck-day{margin:11px 10px;border-radius:14px;}
+  .ck-day-h{padding:13px 14px;font-size:1.04rem;}
+  .ck-count{font-size:.78rem;padding:3px 10px;}
+  .ck-item{padding:15px 14px;min-height:44px;gap:13px;}
+  .ck-box{width:30px;height:30px;border-radius:8px;font-size:1.3rem;}
+  .ck-name{font-size:1.04rem;font-weight:700;color:#1c1c1c;line-height:1.35;}
+  .ck-sub{font-size:.86rem;color:#666;margin-top:2px;}
+  .ck-must{font-size:.72rem;padding:2px 8px;}
+  .ck-pin{font-size:1.4rem;opacity:.5;padding:0 6px;min-width:34px;text-align:center;}
 
   /* Zoom controls: bigger, clear of corners */
   .mapcontrols{bottom:14px;right:10px;gap:9px;}
@@ -212,6 +288,7 @@ header p{font-size:.72rem;opacity:.6;font-weight:300;margin-top:2px;}
     <div class="tabs">
       <div class="tab active" data-tab="lugares">📍 Lugares</div>
       <div class="tab" data-tab="itinerario">🗓️ 4 Días</div>
+      <div class="tab" data-tab="checklist">✅ Lista</div>
     </div>
 
     <!-- TAB LUGARES -->
@@ -235,196 +312,30 @@ header p{font-size:.72rem;opacity:.6;font-weight:300;margin-top:2px;}
 
       <!-- LLEGADA -->
       <div style="margin:8px;padding:10px 13px;background:linear-gradient(135deg,#37474f,#546e7a);color:#fff;border-radius:10px;">
-        <div style="font-family:'Playfair Display',serif;font-size:.85rem;margin-bottom:3px;">✈️ Jueves 3 julio — Llegada tarde</div>
+        <div style="font-family:'Playfair Display',serif;font-size:.85rem;margin-bottom:3px;">✈️ Viernes 3 julio — Llegada tarde</div>
         <div style="font-size:.72rem;opacity:.88;line-height:1.5;">Instálate en Arrecife. Cena cerca: <strong>La Cascada</strong> en Puerto del Carmen (15 min) o algún restaurante del centro de Arrecife. Nada de planificar, a descansar.</div>
       </div>
 
-      <!-- DÍA 1: VIERNES 4 JULIO -->
-      <div class="day-block">
-        <div class="day-header dh1" onclick="focusDay(1)" style="cursor:pointer;user-select:none;" title="Clic: ver solo esta ruta">
-          <span style="font-size:1rem">🌋</span>
-          <h3>Vie 4 jul — Sur y Volcanes</h3>
-          <span class="day-km">~95 km · ~2h</span>
-        </div>
-        <div class="day-body">
-          <div class="day-summary">🚗 Arrecife → sur por LZ-2. Madruga, es el día más intenso.</div>
-
-          <div class="drive"><div class="drive-line"></div><div class="drive-badge">🏠→ Timanfaya · 40 min · 32 km</div><div class="drive-line"></div></div>
-          <div class="stop" data-i="17" onclick="focusStop(this)">
-            <div class="stop-num sn1">1</div>
-            <div><div class="stop-name">⭐ Timanfaya</div><div class="stop-type">📍 · 2-3h · salida 8:30h</div><div class="stop-tip">Llega antes de las 10h para evitar colas. Ruta en bus incluida (45 min). Reserva entrada online.</div></div>
-          </div>
-
-          <div class="drive"><div class="drive-line"></div><div class="drive-badge">Timanfaya → Hervideros · 10 min · 6 km</div><div class="drive-line"></div></div>
-          <div class="stop" data-i="18" onclick="focusStop(this)">
-            <div class="stop-num sn1">2</div>
-            <div><div class="stop-name">Los Hervideros</div><div class="stop-type">📍 · 20-30 min</div><div class="stop-tip">Parada rápida. Costa volcánica espectacular, mejor con oleaje.</div></div>
-          </div>
-
-          <div class="drive"><div class="drive-line"></div><div class="drive-badge">Hervideros → Papagayo · 15 min · 9 km</div><div class="drive-line"></div></div>
-          <div class="stop" data-i="5" onclick="focusStop(this)">
-            <div class="stop-num sn1">3</div>
-            <div><div class="stop-name">🏖️ Papagayo</div><div class="stop-type">🏖️ · mediodía · 2-3h</div><div class="stop-tip">La mejor playa de la isla. Lleva picnic o come en el chiringuito. €5 acceso en coche.</div></div>
-          </div>
-
-          <div class="drive"><div class="drive-line"></div><div class="drive-badge">Papagayo → El Charco Verde · 10 min · 5 km</div><div class="drive-line"></div></div>
-          <div class="stop" data-i="22" onclick="focusStop(this)">
-            <div class="stop-num sn1">4</div>
-            <div><div class="stop-name">El Charco Verde</div><div class="stop-type">📍 · tarde · 30 min</div><div class="stop-tip">Laguna volcánica verde. Paseo tranquilo al atardecer.</div></div>
-          </div>
-
-          <div class="drive"><div class="drive-line"></div><div class="drive-badge">El Charco → Brisa Marinera · 3 min</div><div class="drive-line"></div></div>
-          <div class="stop" data-i="11" onclick="focusStop(this)">
-            <div class="stop-num sn1">5</div>
-            <div><div class="stop-name">🍽️ Brisa Marinera</div><div class="stop-type">🍽️ · cena · Playa Blanca</div><div class="stop-tip">Pescado fresco y cocina canaria. Reserva mesa.</div></div>
-          </div>
-
-          <div class="drive"><div class="drive-line"></div><div class="drive-badge">Playa Blanca → Arrecife · 35 min · 28 km</div><div class="drive-line"></div></div>
-          <div class="day-summary">🏁 ~95 km totales · vuelta ~21h</div>
-        </div>
-      </div>
-
-      <!-- DÍA 2: SÁBADO 5 JULIO -->
-      <div class="day-block">
-        <div class="day-header dh2" onclick="focusDay(2)" style="cursor:pointer;user-select:none;" title="Clic: ver solo esta ruta">
-          <span style="font-size:1rem">🌊</span>
-          <h3>Sáb 5 jul — Norte y Cuevas</h3>
-          <span class="day-km">~105 km · ~2h</span>
-        </div>
-        <div class="day-body">
-          <div class="day-summary g">🚗 Arrecife → norte por LZ-1. El día más largo en distancia.</div>
-
-          <div class="drive"><div class="drive-line"></div><div class="drive-badge">🏠→ Jardín de Cactus · 20 min · 18 km</div><div class="drive-line"></div></div>
-          <div class="stop" data-i="25" onclick="focusStop(this)">
-            <div class="stop-num sn2">1</div>
-            <div><div class="stop-name">Jardín de Cactus</div><div class="stop-type">📍 · mañana · 45 min</div><div class="stop-tip">Manrique puro. Abre 10h. Buen comienzo de ruta norte.</div></div>
-          </div>
-
-          <div class="drive"><div class="drive-line"></div><div class="drive-badge">Cactus → Jameos del Agua · 12 min · 9 km</div><div class="drive-line"></div></div>
-          <div class="stop" data-i="14" onclick="focusStop(this)">
-            <div class="stop-num sn2">2</div>
-            <div><div class="stop-name">Jameos del Agua</div><div class="stop-type">📍 · 1-1.5h</div><div class="stop-tip">Reserva entrada online. Cueva volcánica con lago interior único.</div></div>
-          </div>
-
-          <div class="drive"><div class="drive-line"></div><div class="drive-badge">Jameos → Cueva de los Verdes · 5 min · 3 km</div><div class="drive-line"></div></div>
-          <div class="stop" data-i="15" onclick="focusStop(this)">
-            <div class="stop-num sn2">3</div>
-            <div><div class="stop-name">Cueva de los Verdes</div><div class="stop-type">📍 · 1h visita guiada</div><div class="stop-tip">Justo al lado de Jameos. Visita guiada ~45 min.</div></div>
-          </div>
-
-          <div class="drive"><div class="drive-line"></div><div class="drive-badge">Cuevas → Mirador del Río · 15 min · 12 km</div><div class="drive-line"></div></div>
-          <div class="stop" data-i="16" onclick="focusStop(this)">
-            <div class="stop-num sn2">4</div>
-            <div><div class="stop-name">⭐ Mirador del Río</div><div class="stop-type">📍 · mediodía · 45 min</div><div class="stop-tip">Cierra 17h. Las mejores vistas de Lanzarote. €5 entrada.</div></div>
-          </div>
-
-          <div class="drive"><div class="drive-line"></div><div class="drive-badge">Mirador → La Nasa · 25 min · 20 km</div><div class="drive-line"></div></div>
-          <div class="stop" data-i="10" onclick="focusStop(this)">
-            <div class="stop-num sn2">5</div>
-            <div><div class="stop-name">🍽️ La Nasa</div><div class="stop-type">🍽️ · cena · Arrieta</div><div class="stop-tip">Marisco y cocina canaria auténtica con vistas al mar.</div></div>
-          </div>
-
-          <div class="drive"><div class="drive-line"></div><div class="drive-badge">Arrieta → Famara · 20 min · 18 km</div><div class="drive-line"></div></div>
-          <div class="stop" data-i="7" onclick="focusStop(this)">
-            <div class="stop-num sn2">6</div>
-            <div><div class="stop-name">Famara (atardecer)</div><div class="stop-type">🏖️ · tarde</div><div class="stop-tip">Atardecer épico frente al Risco de Famara.</div></div>
-          </div>
-
-          <div class="drive"><div class="drive-line"></div><div class="drive-badge">Famara → Arrecife · 25 min · 20 km</div><div class="drive-line"></div></div>
-          <div class="day-summary g">🏁 ~105 km totales · vuelta ~21h</div>
-        </div>
-      </div>
-
-      <!-- DÍA 3: DOMINGO 6 JULIO -->
-      <div class="day-block">
-        <div class="day-header dh3" onclick="focusDay(3)" style="cursor:pointer;user-select:none;" title="Clic: ver solo esta ruta">
-          <span style="font-size:1rem">🍷</span>
-          <h3>Dom 6 jul — Mercado y Vinos</h3>
-          <span class="day-km">~75 km · ~1.5h</span>
-        </div>
-        <div class="day-body">
-          <div class="day-summary o">⭐ ¡Domingo = Mercadillo de Teguise! Imprescindible. Luego La Geria.</div>
-
-          <div class="drive"><div class="drive-line"></div><div class="drive-badge">🏠→ Casa Manrique · 10 min · 8 km</div><div class="drive-line"></div></div>
-          <div class="stop" data-i="23" onclick="focusStop(this)">
-            <div class="stop-num sn3">1</div>
-            <div><div class="stop-name">Casa Museo César Manrique</div><div class="stop-type">📍 · mañana · 1h</div><div class="stop-tip">Casa en burbujas de lava. Abre 10h. 10 min desde Arrecife.</div></div>
-          </div>
-
-          <div class="drive"><div class="drive-line"></div><div class="drive-badge">Manrique → Teguise · 10 min · 7 km</div><div class="drive-line"></div></div>
-          <div class="stop" data-i="21" onclick="focusStop(this)">
-            <div class="stop-num sn3">2</div>
-            <div><div class="stop-name">⭐ Mercadillo de Teguise</div><div class="stop-type">📍 · solo domingos · 9h-14h</div><div class="stop-tip">El mayor mercado de Lanzarote. Artesanía, comida, ambiente. ¡Hoy es domingo!</div></div>
-          </div>
-
-          <div class="drive"><div class="drive-line"></div><div class="drive-badge">Teguise → Las Grietas · 10 min · 7 km</div><div class="drive-line"></div></div>
-          <div class="stop" data-i="19" onclick="focusStop(this)">
-            <div class="stop-num sn3">3</div>
-            <div><div class="stop-name">Las Grietas</div><div class="stop-type">📍 · 20 min · parada rápida</div><div class="stop-tip">Paisaje lunar volcánico. Foto obligatoria.</div></div>
-          </div>
-
-          <div class="drive"><div class="drive-line"></div><div class="drive-badge">Grietas → La Geria · 15 min · 10 km</div><div class="drive-line"></div></div>
-          <div class="stop" data-i="24" onclick="focusStop(this)">
-            <div class="stop-num sn3">4</div>
-            <div><div class="stop-name">⭐ Ruta del Vino — La Geria</div><div class="stop-type">📍 · tarde · 2h</div><div class="stop-tip">Bodegas Rubicón o El Grifo. Cata de malvasía en paisaje de cráteres. Único en el mundo.</div></div>
-          </div>
-
-          <div class="drive"><div class="drive-line"></div><div class="drive-badge">La Geria → La Casita de la Playa · 25 min · 20 km</div><div class="drive-line"></div></div>
-          <div class="stop" data-i="12" onclick="focusStop(this)">
-            <div class="stop-num sn3">5</div>
-            <div><div class="stop-name">🍽️ La Casita de la Playa</div><div class="stop-type">🍽️ · cena · Arrieta</div><div class="stop-tip">Cocina canaria auténtica. Alternativa a La Nasa (también en Arrieta).</div></div>
-          </div>
-
-          <div class="drive"><div class="drive-line"></div><div class="drive-badge">Arrieta → Arrecife · 20 min · 16 km</div><div class="drive-line"></div></div>
-          <div class="day-summary o">🏁 ~75 km totales · vuelta ~21h</div>
-        </div>
-      </div>
-
-      <!-- DÍA 4: LUNES 7 JULIO -->
-      <div class="day-block">
-        <div class="day-header dh4" onclick="focusDay(4)" style="cursor:pointer;user-select:none;" title="Clic: ver solo esta ruta">
-          <span style="font-size:1rem">🏖️</span>
-          <h3>Lun 7 jul — Playas y Graciosa</h3>
-          <span class="day-km">~60 km + ferry</span>
-        </div>
-        <div class="day-body">
-          <div class="day-summary" style="background:#e3f2fd;border-left-color:#1a7ab5;">🚢 Día de playa y La Graciosa. El más relajado — bien merecido.</div>
-
-          <div class="drive"><div class="drive-line"></div><div class="drive-badge">🏠→ Órzola · 40 min · 32 km</div><div class="drive-line"></div></div>
-          <div class="stop" data-i="8" onclick="focusStop(this)">
-            <div class="stop-num sn4">1</div>
-            <div><div class="stop-name">⭐ La Graciosa (ferry)</div><div class="stop-type">🏖️ · día completo · 4-5h</div><div class="stop-tip">Ferry desde Órzola ~20 min. Llega pronto (9h) para coger el primer barco. Reserva billete online. Sin coches en la isla.</div></div>
-          </div>
-
-          <div class="drive"><div class="drive-line"></div><div class="drive-badge">Órzola → Punta Mujeres · 10 min · 7 km</div><div class="drive-line"></div></div>
-          <div class="stop" data-i="3" onclick="focusStop(this)">
-            <div class="stop-num sn4">2</div>
-            <div><div class="stop-name">Piscinas Punta Mujeres</div><div class="stop-type">🏖️ · tarde · 1h</div><div class="stop-tip">De vuelta del ferry, parada en las piscinas volcánicas naturales.</div></div>
-          </div>
-
-          <div class="drive"><div class="drive-line"></div><div class="drive-badge">Punta Mujeres → Playa Chica · 25 min · 22 km</div><div class="drive-line"></div></div>
-          <div class="stop" data-i="4" onclick="focusStop(this)">
-            <div class="stop-num sn4">3</div>
-            <div><div class="stop-name">Playa Chica (Fariones)</div><div class="stop-type">🏖️ · tarde · snorkel</div><div class="stop-tip">En Puerto del Carmen. Pequeña, protegida, perfecta para snorkel. El último baño.</div></div>
-          </div>
-
-          <div class="drive"><div class="drive-line"></div><div class="drive-badge">Puerto del Carmen → La Cascada · 5 min</div><div class="drive-line"></div></div>
-          <div class="stop" data-i="9" onclick="focusStop(this)">
-            <div class="stop-num sn4">4</div>
-            <div><div class="stop-name">🍽️ La Cascada — Cena de despedida</div><div class="stop-type">🍽️ · noche · Puerto del Carmen</div><div class="stop-tip">Carnes a la brasa. La mejor cena del viaje para cerrar con broche de oro.</div></div>
-          </div>
-
-          <div class="drive"><div class="drive-line"></div><div class="drive-badge">Puerto del Carmen → Arrecife · 15 min · 11 km</div><div class="drive-line"></div></div>
-          <div class="day-summary" style="background:#e3f2fd;border-left-color:#1a7ab5;">🏁 ~60 km + ferry · mañana muy pronto al aeropuerto ✈️</div>
-        </div>
-      </div>
+      <!-- Itinerario generado dinámicamente desde ITIN (reordenable) -->
+      <div id="itindays"></div>
 
       <div style="padding:8px 12px 14px;font-size:.68rem;color:#aaa;line-height:1.6;">
+        📌 <b>Plan fijo</b> = lo programado (numerado). 💡 <b>Opcional · libre</b> = sugerencias y restaurantes, tú eliges.<br>
         💡 Clic en el header de cada día para ver solo esa ruta en el mapa.<br>
         🚗 Alquiler de coche ~25-40€/día. Gasolina barata en Canarias.<br>
         🌡️ Julio: 27-32°C. Protector 50+, agua, y sal para la resaca de playa.<br>
-        ✈️ Martes 8 julio — salida muy pronto. Deja el coche la noche anterior.
+        ✈️ Miércoles 8 julio — salida muy pronto. Deja el coche la noche anterior.
       </div>
+    </div>
+
+    <!-- TAB CHECKLIST -->
+    <div class="tab-panel" id="tab-checklist">
+      <div class="ck-top">
+        <h4>Progreso de la ruta</h4><span class="ck-pct" id="ckPct">0%</span>
+        <div class="ck-bar"><i id="ckBar"></i></div>
+      </div>
+      <div id="cklist"></div>
+      <button class="ck-reset" id="ckReset">↺ Reiniciar marcas</button>
     </div>
   </div>
 
@@ -483,31 +394,96 @@ var D=[
   {n:"Casa Museo César Manrique",        t:"lugar",      lat:29.0147,lng:-13.5768,z:"Tahíche",                           d:"Casa construida en burbujas volcánicas. Legado personal del artista. Abre 10h.",                      drive:"10 min desde Arrecife · 8 km"},
   {n:"Ruta del Vino — La Geria",         t:"lugar",      lat:29.0015,lng:-13.6890,z:"La Geria",                          d:"Viñedos únicos en cráteres de volcán. Bodegas Rubicón, El Grifo, El Chupadero.",                      drive:"22 min desde Arrecife · 18 km"},
   {n:"Jardín de Cactus",                 t:"lugar",      lat:29.1231,lng:-13.4901,z:"Guatiza",                           d:"Jardín de Manrique con más de 1400 especies de cactus. Abre 10h.",                                    drive:"20 min desde Arrecife · 18 km"},
+  {n:"Yaiza (pueblo)",                   t:"lugar",      lat:28.9519,lng:-13.7702,z:"Sur — pueblo blanco",               d:"Uno de los pueblos más bonitos de España. Casas blancas, calles tranquilas. Ideal para un café o paseo corto de camino a la costa sur.", drive:"30 min desde Arrecife · 25 km"},
+  {n:"Punta Mujeres (pueblo)",           t:"lugar",      lat:29.1530,lng:-13.4625,z:"Norte — pueblo marinero",           d:"Pueblo pesquero de casas blancas con piscinas naturales entre las rocas. Paseo tranquilo junto al mar, sin agobios.", drive:"22 min desde Arrecife · 18 km"},
 ];
 
 // Day assignments
-var DAY_MAP={
-  17:{day:1,color:"#7b4fa6",label:"Día 1"},
-  18:{day:1,color:"#7b4fa6",label:"Día 1"},
-  5: {day:1,color:"#7b4fa6",label:"Día 1"},
-  11:{day:1,color:"#7b4fa6",label:"Día 1"},
-  22:{day:1,color:"#7b4fa6",label:"Día 1"},
-  25:{day:2,color:"#2a9d5c",label:"Día 2"},
-  14:{day:2,color:"#2a9d5c",label:"Día 2"},
-  15:{day:2,color:"#2a9d5c",label:"Día 2"},
-  16:{day:2,color:"#2a9d5c",label:"Día 2"},
-  10:{day:2,color:"#2a9d5c",label:"Día 2"},
-  7: {day:2,color:"#2a9d5c",label:"Día 2"},
-  23:{day:3,color:"#e07b39",label:"Día 3"},
-  21:{day:3,color:"#e07b39",label:"Día 3"},
-  19:{day:3,color:"#e07b39",label:"Día 3"},
-  24:{day:3,color:"#e07b39",label:"Día 3"},
-  12:{day:3,color:"#e07b39",label:"Día 3"},
-  8: {day:4,color:"#1a7ab5",label:"Día 4"},
-  3: {day:4,color:"#1a7ab5",label:"Día 4"},
-  4: {day:4,color:"#1a7ab5",label:"Día 4"},
-  9: {day:4,color:"#1a7ab5",label:"Día 4"},
+// ─── ITINERARY MODEL (data-driven) ───────────────────────────
+// Colores por posición de día (mismos que CSS dh1..dh4 / sn1..sn4)
+var DAY_THEME={
+  1:{color:"#7b4fa6",dh:"dh1",sn:"sn1",sum:""},
+  2:{color:"#2a9d5c",dh:"dh2",sn:"sn2",sum:"g"},
+  3:{color:"#e07b39",dh:"dh3",sn:"sn3",sum:"o"},
+  4:{color:"#1a7ab5",dh:"dh4",sn:"sn4",sum:"b"}
 };
+var ARR_WP=[28.9636,-13.5477]; // Arrecife (casa)
+// stops = PLAN FIJO (numerado). meal:true = parada a comer (sin restaurante, va en sugerencias).
+// suggestions = OPCIONAL / libre (restaurantes, sitios sueltos). i=índice en D · note=texto · opt=etiqueta.
+var ITIN=[
+  {day:1,wd:"Sáb",date:"4 jul",emoji:"🌋",title:"Sur y Volcanes",
+   intro:"🚗 Arrecife → sur por LZ-2. Madruga, es el día más intenso.",
+   stops:[
+     {i:17,meta:"mañana · 2-3h · salida 8:30h",tip:"Llega antes de las 10h para evitar colas. Ruta en bus incluida (45 min). Reserva entrada online."},
+     {i:26,meta:"30-40 min",tip:"Uno de los pueblos más bonitos de España. Casas blancas y calma. Café o paseo corto antes de bajar a la costa."},
+     {i:18,meta:"20-30 min",tip:"Costa volcánica espectacular, mejor con oleaje."},
+     {meal:true,tip:"Comemos por la zona sur (Playa Blanca / El Golfo). Sin prisa. Mira las sugerencias de abajo."},
+     {i:22,meta:"tarde · 30 min",tip:"Laguna volcánica verde. Paseo tranquilo."},
+     {i:5,meta:"tarde · 2-3h",tip:"La mejor playa de la isla. Lleva agua y sombrilla. €5 acceso en coche."}
+   ],
+   suggestions:[
+     {i:11,note:"Pescado fresco y cocina canaria, en Playa Blanca. Para la comida."},
+     {i:13,note:"Italiano con buen ambiente, también en Playa Blanca."},
+     {label:"El Golfo / Charco de los Clicos",note:"Laguna verde junto al pueblo de El Golfo; buenos sitios para comer pescado."}
+   ]},
+  {day:2,wd:"Dom",date:"5 jul",emoji:"🛍️",title:"Mercadillo y Centro",
+   intro:"⭐ Domingo céntrico: mercadillo, Las Grietas, los cactus y Famara al atardecer. La Geria queda opcional.",
+   stops:[
+     {i:21,star:"⭐",meta:"mañana · solo domingos · 9h-14h",tip:"El mayor mercado de Lanzarote. Artesanía, comida, ambiente. ¡Hoy es domingo!"},
+     {i:19,meta:"20 min · parada rápida",tip:"Paisaje lunar volcánico. Foto obligatoria."},
+     {meal:true,tip:"Comemos en Teguise o en el propio mercadillo (mucho donde picar). Mira las sugerencias."},
+     {i:25,meta:"tarde · 45 min",tip:"Manrique puro. Abre 10h, cierra ~17:45h. Más de 1400 especies de cactus."},
+     {i:7,meta:"atardecer",tip:"Atardecer épico frente al Risco de Famara. Cierre perfecto para un día tranquilo."}
+   ],
+   suggestions:[
+     {i:24,opt:"opción libre",note:"Ruta del vino por La Geria si os apetece: cata de malvasía entre cráteres. ~2h."},
+     {label:"Comer en Teguise",note:"Varios sitios en el casco antiguo del pueblo; mucho ambiente los domingos."},
+     {label:"Cenar en Famara",note:"La Caleta de Famara tiene chiringuitos y restaurantes con vistas para el atardecer."}
+   ]},
+  {day:3,wd:"Lun",date:"6 jul",emoji:"🌊",title:"Norte y Cuevas",
+   intro:"🚗 Norte tranquilo: las cuevas (cierran antes), el mirador, comemos arriba y bajamos a pasear por Punta Mujeres.",
+   stops:[
+     {i:15,meta:"mañana · 1h · cierra antes",tip:"Empieza por aquí: cierra antes que el resto. Visita guiada ~45 min."},
+     {i:14,meta:"mañana · 1-1.5h",tip:"Justo al lado. Reserva online. Cueva con lago interior único."},
+     {i:16,star:"⭐",meta:"mediodía · 45 min",tip:"Cierra 17h. Las mejores vistas de Lanzarote, hacia La Graciosa. €5 entrada."},
+     {meal:true,tip:"Comemos arriba, junto al Mirador del Río o en Haría, antes de bajar. Mira las sugerencias."},
+     {i:27,meta:"tarde · paseo",tip:"Pueblo marinero de casas blancas y piscinas naturales entre las rocas. Paseo tranquilo junto al mar para cerrar el día."}
+   ],
+   suggestions:[
+     {i:10,note:"Marisco y cocina canaria en Arrieta, justo al lado de Punta Mujeres."},
+     {label:"Comer en Haría",note:"El Valle de los Mil Palmas tiene sitios con encanto, muy cerca del Mirador."}
+   ]},
+  {day:4,wd:"Mar",date:"7 jul",emoji:"⛵",title:"La Graciosa",
+   intro:"⛵ Día casi entero en La Graciosa, comida incluida en la isla. El resto del día, opcional.",
+   outro:"mañana muy pronto al aeropuerto ✈️",
+   stops:[
+     {i:8,star:"⭐",via:[29.2090,-13.4920],meta:"día completo · comida incluida",tip:"Ferry desde Órzola ~20 min. Primer barco ~9h, reserva online. Comemos en Caleta de Sebo. Sin coches: a pie, en bici o taxi-4x4 a las playas (Francesa, Cofete, La Cocina)."}
+   ],
+   suggestions:[
+     {i:4,note:"Snorkel en Puerto del Carmen, si queda tarde."},
+     {i:9,note:"Cena de despedida: carnes a la brasa en Puerto del Carmen."}
+   ]}
+];
+
+function dayObj(day){for(var k=0;k<ITIN.length;k++)if(ITIN[k].day===day)return ITIN[k];return null;}
+// Paradas con ubicación (excluye las de "comer"): definen la ruta y la numeración
+function placeStops(d){return d.stops.filter(function(s){return !s.meal&&s.i!=null;});}
+
+// DAY_MAP derivado de ITIN: programadas (numeradas) + sugerencias (atenuadas)
+var DAY_MAP={};
+function rebuildDayMap(){
+  DAY_MAP={};
+  ITIN.forEach(function(d){
+    placeStops(d).forEach(function(s){
+      DAY_MAP[s.i]={day:d.day,color:DAY_THEME[d.day].color,label:"Día "+d.day,sugg:false};
+    });
+    (d.suggestions||[]).forEach(function(s){
+      if(s.i!=null&&DAY_MAP[s.i]==null)
+        DAY_MAP[s.i]={day:d.day,color:DAY_THEME[d.day].color,label:"Día "+d.day,sugg:true};
+    });
+  });
+}
+rebuildDayMap();
 
 var EM={alojamiento:"🏨",playa:"🏖️",restaurante:"🍽️",lugar:"📍"};
 var LM={alojamiento:"Alojamiento",playa:"Playa",restaurante:"Restaurante",lugar:"Lugar"};
@@ -527,47 +503,20 @@ var dragging=false,dragX=0,dragY=0,didDrag=false;
 var activeFilter="all",activeTab="lugares";
 
 // ─── ROUTES ──────────────────────────────────────────────────
-// Waypoints per day: [lat,lng] ordered stops including Arrecife start/end
-var DAY_WAYPOINTS={
-  1:[ // Vie 4 jul — Sur y Volcanes
-    [28.9636,-13.5477],
-    [29.0052,-13.7538], // Timanfaya
-    [28.9216,-13.8220], // Los Hervideros
-    [28.8432,-13.7911], // Papagayo
-    [28.8720,-13.8450], // El Charco Verde
-    [28.8620,-13.8275], // Brisa Marinera
-    [28.9636,-13.5477]
-  ],
-  2:[ // Sáb 5 jul — Norte y Cuevas
-    [28.9636,-13.5477],
-    [29.1231,-13.4901], // Jardín de Cactus
-    [29.1654,-13.4280], // Jameos del Agua
-    [29.1764,-13.4318], // Cueva de los Verdes
-    [29.2153,-13.4798], // Mirador del Río
-    [29.1550,-13.4660], // La Nasa (Arrieta)
-    [29.0916,-13.5598], // Famara
-    [28.9636,-13.5477]
-  ],
-  3:[ // Dom 6 jul — Mercado y Vinos
-    [28.9636,-13.5477],
-    [29.0147,-13.5768], // Casa Manrique
-    [29.0621,-13.5594], // Teguise
-    [29.0470,-13.5790], // Las Grietas
-    [29.0015,-13.6890], // La Geria
-    [29.1555,-13.4680], // La Casita (Arrieta)
-    [28.9636,-13.5477]
-  ],
-  4:[ // Lun 7 jul — Playas y Graciosa
-    [28.9636,-13.5477],
-    [29.2090,-13.4920], // Órzola (ferry)
-    [29.1583,-13.4617], // Punta Mujeres
-    [28.9241,-13.6632], // Playa Chica
-    [28.9220,-13.6580], // La Cascada
-    [28.9636,-13.5477]
-  ]
-};
-var DAY_COLORS_ROUTE={1:"#7b4fa6",2:"#2a9d5c",3:"#e07b39",4:"#1a7ab5"};
+// Waypoints por día, derivados de ITIN (Arrecife al inicio y fin)
+function dayWaypoints(d){
+  var wp=[ARR_WP.slice()];
+  placeStops(d).forEach(function(s){var p=D[s.i];wp.push(s.via?s.via.slice():[p.lat,p.lng]);});
+  wp.push(ARR_WP.slice());
+  return wp;
+}
+var DAY_WAYPOINTS={};
+function rebuildWaypoints(){ITIN.forEach(function(d){DAY_WAYPOINTS[d.day]=dayWaypoints(d);});}
+rebuildWaypoints();
+var DAY_COLORS_ROUTE={};
+ITIN.forEach(function(d){DAY_COLORS_ROUTE[d.day]=DAY_THEME[d.day].color;});
 var routePolylines={1:null,2:null,3:null,4:null};
+var routeLegs={1:null,2:null,3:null,4:null};
 var routeLoading={1:false,2:false,3:false,4:false};
 var focusedDay=null;
 
@@ -595,14 +544,51 @@ function fetchRoute(day){
   fetch(url).then(function(r){return r.json();}).then(function(data){
     if(data.routes&&data.routes[0]){
       routePolylines[day]=decodePoly(data.routes[0].geometry);
+      routeLegs[day]=data.routes[0].legs||null;
     }
     routeLoading[day]=false;
+    updateDriveBadges(day);
     draw();
   }).catch(function(){routeLoading[day]=false;});
 }
 
+// Formatea un tramo OSRM (segundos/metros → "12 min · 9 km")
+function fmtLeg(leg){
+  if(!leg)return "…";
+  var min=Math.max(1,Math.round(leg.duration/60));
+  var km=Math.max(1,Math.round(leg.distance/1000));
+  return min+" min · "+km+" km";
+}
+function shortName(n){n=n.replace(/\s*⭐/,"").replace(/\s*\(.*?\)/,"").trim();return n.length>17?n.slice(0,16)+"…":n;}
+
+// Rellena las etiquetas de tramo y el total del día con los datos reales de OSRM
+function updateDriveBadges(day){
+  var d=dayObj(day);if(!d)return;
+  var legs=routeLegs[day],stops=placeStops(d);
+  for(var idx=0;idx<stops.length;idx++){
+    var el=document.getElementById("drv"+day+"_"+idx);
+    if(!el)continue;
+    var name=shortName(D[stops[idx].i].n);
+    var legtxt=(legs&&legs[idx])?(" · "+fmtLeg(legs[idx])):" · …";
+    el.textContent=(idx===0?"🏠 → ":shortName(D[stops[idx-1].i].n)+" → ")+name+legtxt;
+  }
+  var back=document.getElementById("drv"+day+"_back");
+  if(back&&stops.length){
+    var legtxt2=(legs&&legs[stops.length])?(" · "+fmtLeg(legs[stops.length])):" · …";
+    back.textContent=shortName(D[stops[stops.length-1].i].n)+" → Arrecife 🏠"+legtxt2;
+  }
+  if(legs){
+    var totM=0,totKm=0;legs.forEach(function(l){totKm+=l.distance;totM+=l.duration;});
+    var km=Math.round(totKm/1000),hrs=(totM/3600);
+    var kmEl=document.getElementById("daykm"+day);
+    if(kmEl)kmEl.textContent="~"+km+" km"+(day===4?" + ferry":"")+" · ~"+(hrs<1?Math.round(hrs*60)+" min":hrs.toFixed(1)+"h");
+    var sumEl=document.getElementById("daysum"+day);
+    if(sumEl)sumEl.textContent="🏁 ~"+km+" km totales · "+(d.outro||"vuelta ~21h");
+  }
+}
+
 function drawRoutes(){
-  var days=activeTab==="itinerario"?[1,2,3,4]:[];
+  var days=(activeTab==="itinerario"||activeTab==="checklist")?[1,2,3,4]:[];
   days.forEach(function(day){
     fetchRoute(day);
     var coords=routePolylines[day];
@@ -739,6 +725,9 @@ function draw(){
     var color=CM[p.t];
     var di=DAY_MAP[i];
     if(activeTab==="itinerario"&&di)color=di.color;
+    // Sugerencias (opcional): marcador atenuado y sin número
+    var sugg=activeTab==="itinerario"&&di&&di.sugg;
+    if(sugg)ctx.globalAlpha=0.45;
 
     // Shadow
     ctx.beginPath();ctx.arc(pos.x+1.5,pos.y+2,r+1,0,Math.PI*2);ctx.fillStyle="rgba(0,0,0,0.2)";ctx.fill();
@@ -748,6 +737,7 @@ function draw(){
     // Emoji
     ctx.font=fs+"px serif";ctx.textAlign="center";ctx.textBaseline="middle";
     ctx.fillText(EM[p.t],pos.x,pos.y);
+    if(sugg)ctx.globalAlpha=1;
     // Label at high zoom
     if(zoom>=13){
       var label=p.n.length>16?p.n.substring(0,14)+"…":p.n;
@@ -756,8 +746,8 @@ function draw(){
       ctx.textBaseline="top";ctx.fillStyle="#fff";ctx.strokeStyle=color;ctx.lineWidth=3;
       ctx.strokeText(label,pos.x,pos.y+r+2);ctx.fillText(label,pos.x,pos.y+r+2);
     }
-    // Day number badge in itinerary mode
-    if(activeTab==="itinerario"&&di&&zoom>=11){
+    // Day number badge in itinerary mode (solo programadas, no sugerencias)
+    if(activeTab==="itinerario"&&di&&!di.sugg&&zoom>=11){
       var br=Math.max(7,Math.round(r*0.55));
       ctx.beginPath();ctx.arc(pos.x+r*0.65,pos.y-r*0.65,br,0,Math.PI*2);
       ctx.fillStyle="#fff";ctx.fill();
@@ -890,8 +880,11 @@ canvas.addEventListener("click",function(e){
 document.getElementById("zin").addEventListener("click",function(){zoom=Math.min(17,zoom+1);tiles={};draw();});
 document.getElementById("zout").addEventListener("click",function(){zoom=Math.max(7,zoom-1);tiles={};draw();});
 
-var DAY_LABELS={1:"🌋 Vie 4 jul — Sur y Volcanes",2:"🌊 Sáb 5 jul — Norte y Cuevas",3:"🍷 Dom 6 jul — Mercado y Vinos",4:"🏖️ Lun 7 jul — Playas y Graciosa"};
-var DAY_COLORS={1:"#7b4fa6",2:"#2a9d5c",3:"#e07b39",4:"#1a7ab5"};
+var DAY_LABELS={},DAY_COLORS={};
+ITIN.forEach(function(d){
+  DAY_LABELS[d.day]=d.emoji+" "+d.wd+" "+d.date+" — "+d.title;
+  DAY_COLORS[d.day]=DAY_THEME[d.day].color;
+});
 
 function showPopup(i){
   var p=D[i];
@@ -948,8 +941,10 @@ document.querySelectorAll(".tab").forEach(function(tab){
     document.querySelectorAll(".tab-panel").forEach(function(x){x.classList.remove("active");});
     tab.classList.add("active");document.getElementById("tab-"+t).classList.add("active");
     var leg=document.getElementById("legend");
-    if(t==="itinerario"){
-      leg.innerHTML='<h4>Itinerario</h4><div class="lr"><div class="ld" style="background:#7b4fa6"></div>Vie 4 jul — Sur</div><div class="lr"><div class="ld" style="background:#2a9d5c"></div>Sáb 5 jul — Norte</div><div class="lr"><div class="ld" style="background:#e07b39"></div>Dom 6 jul — Vinos</div><div class="lr"><div class="ld" style="background:#1a7ab5"></div>Lun 7 jul — Playas</div>';
+    if(t==="itinerario"||t==="checklist"){
+      var lh='<h4>Itinerario</h4>';
+      ITIN.forEach(function(d){lh+='<div class="lr"><div class="ld" style="background:'+DAY_THEME[d.day].color+'"></div>'+d.wd+' '+d.date+' · '+d.title+'</div>';});
+      leg.innerHTML=lh;
       // Pre-fetch all routes
       fetchRoute(1);fetchRoute(2);fetchRoute(3);fetchRoute(4);
       focusedDay=null;
@@ -982,6 +977,144 @@ function focusStop(el){
   focusedDay=di?di.day:null;
   centerLat=p.lat;centerLng=p.lng;zoom=14;tiles={};draw();showPopup(i);
 }
+
+// ─── RENDER ITINERARIO (dinámico) ────────────────────────────
+function renderItinerary(){
+  var root=document.getElementById("itindays");
+  if(!root)return;
+  root.innerHTML="";
+  ITIN.forEach(function(d){
+    var th=DAY_THEME[d.day];
+    var html='<div class="day-block"><div class="day-header '+th.dh+'" onclick="focusDay('+d.day+')" style="cursor:pointer;user-select:none;" title="Clic: ver solo esta ruta">'+
+      '<span style="font-size:1rem">'+d.emoji+'</span>'+
+      '<h3>'+d.wd+' '+d.date+' — '+d.title+'</h3>'+
+      '<span class="day-km" id="daykm'+d.day+'">…</span></div>'+
+      '<div class="day-body"><div class="day-summary '+th.sum+'">'+d.intro+'</div>'+
+      '<div class="plan-tag">📌 Plan fijo</div>';
+    var pidx=0,pnum=0;
+    d.stops.forEach(function(s){
+      if(s.meal){
+        html+='<div class="meal"><span class="meal-ico">🍴</span><div class="meal-body"><div class="meal-name">Parada para comer</div><div class="meal-tip">'+s.tip+'</div></div></div>';
+        return;
+      }
+      var p=D[s.i];
+      html+='<div class="drive"><div class="drive-line"></div><div class="drive-badge" id="drv'+d.day+'_'+pidx+'">…</div><div class="drive-line"></div></div>';
+      pidx++;pnum++;
+      html+='<div class="stop" data-i="'+s.i+'">'+
+        '<div class="stop-num '+th.sn+'">'+pnum+'</div>'+
+        '<div class="stop-main" data-i="'+s.i+'" onclick="focusStop(this)">'+
+          '<div class="stop-name">'+(s.star?s.star+' ':'')+p.n+'</div>'+
+          '<div class="stop-type">'+EM[p.t]+' · '+s.meta+'</div>'+
+          '<div class="stop-tip">'+s.tip+'</div></div></div>';
+    });
+    html+='<div class="drive"><div class="drive-line"></div><div class="drive-badge" id="drv'+d.day+'_back">…</div><div class="drive-line"></div></div>';
+    html+='<div class="day-summary '+th.sum+'" id="daysum'+d.day+'">🏁 '+(d.outro||"vuelta ~21h")+'</div>';
+    // Sugerencias / opcional
+    if(d.suggestions&&d.suggestions.length){
+      html+='<div class="sugbox"><div class="sug-h">💡 Opcional · libre <span>(no es plan fijo)</span></div>';
+      d.suggestions.forEach(function(s){
+        var hasP=s.i!=null,p=hasP?D[s.i]:null;
+        var name=hasP?(EM[p.t]+' '+p.n):('✨ '+s.label);
+        var sub=hasP?(p.z||LM[p.t]):'';
+        html+='<div class="sug'+(hasP?'" data-i="'+s.i+'"':' nogo"')+'>'+
+          '<div class="sug-main"><div class="sug-name">'+name+(s.opt?'<span class="sug-opt">'+s.opt+'</span>':'')+'</div>'+
+          (sub?'<div class="sug-sub">'+sub+'</div>':'')+
+          '<div class="sug-note">'+s.note+'</div></div>'+
+          (hasP?'<span class="sug-pin">📍</span>':'')+'</div>';
+      });
+      html+='</div>';
+    }
+    html+='</div></div>';
+    var wrap=document.createElement("div");wrap.innerHTML=html;
+    root.appendChild(wrap.firstChild);
+  });
+  // sugerencias con ubicación → clic centra el mapa
+  root.querySelectorAll(".sug[data-i]").forEach(function(el){
+    el.addEventListener("click",function(){
+      var i=parseInt(el.dataset.i),p=D[i];
+      centerLat=p.lat;centerLng=p.lng;zoom=14;tiles={};draw();showPopup(i);
+    });
+  });
+  ITIN.forEach(function(d){updateDriveBadges(d.day);});
+}
+
+// ─── CHECKLIST ───────────────────────────────────────────────
+var CK_MUST={17:true,14:true,15:true}; // Timanfaya, Jameos, Cueva de los Verdes (lista de mamá)
+var CK_KEY="lz_check_v1";
+var ckState={};
+try{ckState=JSON.parse(localStorage.getItem(CK_KEY))||{};}catch(e){ckState={};}
+function ckSave(){try{localStorage.setItem(CK_KEY,JSON.stringify(ckState));}catch(e){}}
+
+function ckUpdateProgress(){
+  var total=0,done=0;
+  ITIN.forEach(function(d){
+    var dd=0,ps=placeStops(d);
+    ps.forEach(function(s){total++;if(ckState[s.i]){done++;dd++;}});
+    var c=document.getElementById("ckCount"+d.day);
+    if(c)c.textContent=dd+"/"+ps.length;
+  });
+  var pct=total?Math.round(done/total*100):0;
+  var bar=document.getElementById("ckBar"),pe=document.getElementById("ckPct");
+  if(bar)bar.style.width=pct+"%";
+  if(pe)pe.textContent=pct+"%";
+}
+
+function ckToggle(i){
+  if(ckState[i])delete ckState[i];else ckState[i]=1;
+  ckSave();
+  document.querySelectorAll(".ck-item[data-i='"+i+"']").forEach(function(el){
+    el.classList.toggle("done",!!ckState[i]);
+    el.querySelector(".ck-box").textContent=ckState[i]?"✓":"";
+  });
+  ckUpdateProgress();
+}
+
+function buildChecklist(){
+  var cl=document.getElementById("cklist");
+  if(!cl)return;
+  cl.innerHTML="";
+  ITIN.forEach(function(d){
+    var block=document.createElement("div");block.className="ck-day";
+    var head=document.createElement("div");head.className="ck-day-h";
+    head.style.background=DAY_THEME[d.day].color;
+    head.innerHTML='<span>'+d.emoji+' '+d.wd+' '+d.date+' — '+d.title+'</span><span class="ck-count" id="ckCount'+d.day+'"></span>';
+    block.appendChild(head);
+    placeStops(d).forEach(function(s){
+      var i=s.i,p=D[i];if(!p)return;
+      var done=!!ckState[i];
+      var item=document.createElement("div");
+      item.className="ck-item"+(done?" done":"");item.dataset.i=i;
+      item.innerHTML=
+        '<div class="ck-box">'+(done?"✓":"")+'</div>'+
+        '<div class="ck-body"><div class="ck-name">'+EM[p.t]+' '+(s.star?s.star+' ':'')+p.n+
+          (CK_MUST[i]?'<span class="ck-must">imprescindible</span>':'')+'</div>'+
+          '<div class="ck-sub">'+(p.z||LM[p.t])+'</div></div>'+
+        '<span class="ck-pin" title="Ver en el mapa">📍</span>';
+      item.addEventListener("click",function(e){
+        if(e.target.classList.contains("ck-pin")){
+          e.stopPropagation();
+          centerLat=p.lat;centerLng=p.lng;zoom=14;tiles={};draw();showPopup(i);
+          return;
+        }
+        ckToggle(i);
+      });
+      block.appendChild(item);
+    });
+    cl.appendChild(block);
+  });
+  ckUpdateProgress();
+}
+
+// Init dinámico
+renderItinerary();
+buildChecklist();
+document.getElementById("ckReset").addEventListener("click",function(){
+  ckState={};ckSave();
+  document.querySelectorAll(".ck-item").forEach(function(el){
+    el.classList.remove("done");el.querySelector(".ck-box").textContent="";
+  });
+  ckUpdateProgress();
+});
 
 window.addEventListener("resize",resize);
 resize();
